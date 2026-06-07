@@ -1,3 +1,8 @@
+# Used when I was learning how to use pandas dataframes
+import pandas as pd 
+
+
+
 input = "Delia --> 112300022"
 clean = input.split(' --> ')
 result = [clean[0]] + list(clean[1])
