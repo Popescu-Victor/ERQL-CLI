@@ -1,4 +1,4 @@
-class ColumnChecker: #Consider changing this to a simple function later.
+class ColumnChecker:
     def __init__(self, df):
         self.df = df
         self.indicator = 'Test Passes'
