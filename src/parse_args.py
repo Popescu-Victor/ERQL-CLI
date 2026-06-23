@@ -1,3 +1,6 @@
+print("Welcome to the ERQL CLI. Type 'exit' to quit.")
+
+
 def main(args):
 
     if len(args) == 0:
