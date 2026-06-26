@@ -27,4 +27,7 @@ def main(args):
 
     if args[0] == "dataframe":
         if args[1] == "new":
-            import dataframes
+            from src import dataframes
+            col_list = input("Write the names of the columns separated by '//' >>  ").split('//')
+            df = dataframes.CLI_Dataframe(col_list)
+            print(df.head())
