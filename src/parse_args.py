@@ -28,6 +28,13 @@ def main(args):
     if args[0] == "dataframe":
         if args[1] == "new":
             from src import dataframes
-            col_list = input("Write the names of the columns separated by '//' >>  ").split('//')
+            col_list = input("Write the names of the columns separated by comma >>  ").split(',')
+            global df
             df = dataframes.CLI_Dataframe(col_list)
+
+        if args[1] == "data":
+            user_input = input(">>")
+            while user_input != "done":
+                df.add_row(input(">>").split(','))
+        if args[1] == "cols":
             print(df.head())
