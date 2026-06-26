@@ -24,3 +24,7 @@ def main(args):
                 print(f"Current file path: {selected_file}")
             else:
                 print("No file path set.")
+
+    if args[0] == "dataframe":
+        if args[1] == "new":
+            import dataframes

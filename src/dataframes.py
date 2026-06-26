@@ -1,6 +1,16 @@
 import pandas as pd
 
 
+class CLI_Dataframe():
+    def __init__(self, columns):
+        self.df = pd.DataFrame(columns=columns)
+
+    def add_row(self, row):
+        self.df.loc[len(self.df)] = row
+
+
+
+
 def main(col_no: int):
     col_names = []
     for i in range(int(col_no)):
