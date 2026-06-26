@@ -12,4 +12,4 @@ while True:
         print("Exiting the program.")
         sys.exit(0)
     else:
-        pa.main(user_input.split("_"))
+        pa.main(user_input.split(">"))

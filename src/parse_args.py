@@ -13,13 +13,14 @@ def main(args):
             filepath = filedialog.askopenfilename(title="Select a file", filetypes=[("CSV files", "*.csv")])
             if filepath:
                 print(f"Selected file: {filepath}")
+                global selected_file
                 selected_file = Filepath(filepath)
                 return selected_file
             else:
                 print("No file selected.")
                 return None
         if args[1] == "path":
-            if Filepath is not None:
-                print(f"Current file path: {Filepath}")
+            if selected_file is not None:
+                print(f"Current file path: {selected_file}")
             else:
                 print("No file path set.")
