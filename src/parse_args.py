@@ -39,4 +39,6 @@ def main(args):
         if args[1] == "cols":
             print(df.head())
 
-    if args[0] == ""
+    if args[0] == "ask":
+        from src import ask_gemini_flash
+        ask_gemini_flash.main(args[1])
