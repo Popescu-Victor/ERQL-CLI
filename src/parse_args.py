@@ -32,9 +32,11 @@ def main(args):
             global df
             df = dataframes.CLI_Dataframe(col_list)
 
-        if args[1] == "data":
+        if args[1] == "add":
             user_input = input(">>")
             while user_input != "done":
                 df.add_row(input(">>").split(','))
         if args[1] == "cols":
             print(df.head())
+
+    if args[0] == ""
