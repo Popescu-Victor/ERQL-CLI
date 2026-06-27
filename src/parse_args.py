@@ -41,4 +41,4 @@ def main(args):
 
     if args[0] == "ask":
         from src import ask_gemini_flash
-        ask_gemini_flash.main(args[1])
+        ask_gemini_flash.main(args[1:])
