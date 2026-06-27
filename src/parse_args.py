@@ -42,3 +42,7 @@ def main(args):
     if args[0] == "ask":
         from src import ask_gemini_flash
         ask_gemini_flash.main(args[1:])
+    
+    if args[0] == "convert":
+        from src import ilias_convert
+        ilias_convert.convert_csv_to_ilias_format(args[1:])
