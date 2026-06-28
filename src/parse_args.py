@@ -6,7 +6,7 @@ def main(args):
     if len(args) == 0:
         print("No arguments provided. Please provide a command.")
         return
-    if args[0] == "file":
+    if args[0] == "file": # Commands related to files on the device.
         if args[1] == "select":
             from src.args_file import Filepath
             from tkinter import filedialog
@@ -25,7 +25,7 @@ def main(args):
             else:
                 print("No file path set.")
 
-    if args[0] == "dataframe":
+    if args[0] == "dataframe": # Create and edit a blank dataframe.
         if args[1] == "new":
             from src import dataframes
             col_list = input("Write the names of the columns separated by comma >>  ").split(',')
@@ -39,10 +39,10 @@ def main(args):
         if args[1] == "cols":
             print(df.head())
 
-    if args[0] == "ask":
+    if args[0] == "ask": # API request to Gemini Flash.
         from src import ask_gemini_flash
         ask_gemini_flash.main(args[1:])
     
-    if args[0] == "convert":
+    if args[0] == "convert": # Convert scraped ILIAS content into readable format.
         from src import ilias_convert
         ilias_convert.convert_csv_to_ilias_format(args[1:])
