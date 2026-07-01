@@ -41,6 +41,9 @@ htmlcov/
 .DS_Store
 Thumbs.db
 
-# Logs / local databases
+# Logs / local databases / Persistent data (pickle)
 *.log
 *.sqlite3
+*.json
+*.pkl
+*.pickle
