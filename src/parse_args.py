@@ -20,7 +20,10 @@ def main(args):
                 print(f"Selected file: {filepath}")
                 global selected_file
                 selected_file = Filepath(filepath)
-                return selected_file
+                result = from_path(selected_file.path).best()
+                global dataframe
+                dataframe = pd.read_csv(selected_file.path, encoding=result.encoding)
+                return selected_file, dataframe
             else:
                 print("No file selected.")
                 return None
@@ -32,10 +35,13 @@ def main(args):
                 print("No file path set.")
 
         if args[1] == "info":
-            result = from_path(selected_file.path).best()
-            dataframe = pd.read_csv(selected_file.path, encoding=result.encoding)
             print(f"File info:\n{dataframe.info()}")
 
+        if args[1] == "head":
+            print(f"File head:\n{dataframe.head()}")
+
+        if args[1] == "details":
+            print(f"File details:\n{dataframe.describe()}")
 
 
 
