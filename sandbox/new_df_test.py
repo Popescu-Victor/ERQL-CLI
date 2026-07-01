@@ -20,7 +20,10 @@ while True:
         print("Exiting the program.")
         break
     else:
-        try:
-            exec(user_input)
-        except Exception as e:
-            print(f"Error: {e}")
+        new_row = []
+        for col in dataframe.columns:
+            value = input(f"Enter value for column '{col}': ")
+            new_row.append(value)
+        dataframe.loc[len(dataframe)] = new_row
+        print("Row added successfully.")
+        print(dataframe)
