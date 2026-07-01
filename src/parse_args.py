@@ -1,3 +1,8 @@
+import pandas as pd
+import pickle
+from charset_normalizer import from_path
+
+
 print("Welcome to the ERQL CLI. Type 'exit' to quit.")
 
 
@@ -19,11 +24,20 @@ def main(args):
             else:
                 print("No file selected.")
                 return None
+
         if args[1] == "path":
             if selected_file is not None:
                 print(f"Current file path: {selected_file}")
             else:
                 print("No file path set.")
+
+        if args[1] == "info":
+            result = from_path(selected_file.path).best()
+            dataframe = pd.read_csv(selected_file.path, encoding=result.encoding)
+            print(f"File info:\n{dataframe.info()}")
+
+
+
 
     if args[0] == "dataframe": # Create and edit a blank dataframe.
         if args[1] == "new":
