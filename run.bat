@@ -1,3 +1,5 @@
 @echo off
-python3 main.py
+cd /d "%~dp0"
+
+cargo run
 pause
