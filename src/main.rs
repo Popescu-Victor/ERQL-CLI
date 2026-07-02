@@ -14,8 +14,11 @@ fn main() {
 
         let parts: Vec<&str> = command.split_whitespace().collect();
         
-        for part in &parts {
-            println!("{}", part);
-}
-    }
-}
+        match parts.as_slice() {
+            ["file", "select"] => {
+                scripts::select_file();
+            }
+            _ => {
+                println!("Unknown command: {}", command);
+            }
+}}}

@@ -1,11 +1,12 @@
-pub fn plot() {
-    println!("Plotting...");
-}
+use rfd::FileDialog;
+use std::path::PathBuf;
 
-pub fn analyze() {
-    println!("Analyzing...");
-}
-
-pub fn convert() {
-    println!("Converting...");
+pub fn select_file() -> Option<PathBuf> {
+    let file = FileDialog::new().pick_file();
+    if let Some(path) = &file {
+        println!("Selected file: {}", path.display());
+    } else {
+        println!("No file selected.");
+    }
+    file
 }
