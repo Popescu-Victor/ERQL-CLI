@@ -3,6 +3,7 @@ use std::io::{self, Write};
 
 mod scripts;
 mod dataframes;
+mod system;
 
 fn main() {
 
@@ -34,6 +35,14 @@ fn main() {
             ["graph", "scatter", x, y] => {}
 
             ["graph", "hist"] => {}
+
+            ["system", "windows"] => {
+                let window_names = system::get_open_window_names();
+                println!("Open Windows:");
+                for name in window_names {
+                    println!("{}", name);
+                }
+            }
 
             ["exit"] => {
                 println!("Exiting...");
