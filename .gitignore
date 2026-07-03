@@ -52,3 +52,8 @@ Thumbs.db
 # Added by cargo
 
 /target
+
+
+# Temp files
+
+data_utf8.csv
