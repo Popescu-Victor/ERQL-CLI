@@ -28,6 +28,12 @@ fn main() {
             ["file", "head"] => dataframes::convert_to_df(file_path.selected_file.clone()).unwrap_or_else(|e| {
                 eprintln!("Error reading CSV file: {}", e);
             }),
+            
+            ["file", "summary"] => {}
+
+            ["graph", "scatter", x, y] => {}
+
+            ["graph", "hist"] => {}
 
             ["exit"] => {
                 println!("Exiting...");
