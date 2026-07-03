@@ -1,8 +1,8 @@
 use std::io::{self, Write};
-use std::path::PathBuf;
 
 
 mod scripts;
+mod pola;
 
 fn main() {
 
@@ -24,6 +24,10 @@ fn main() {
             ["file", "select"] => file_path.select_file(),
 
             ["file", "path"] => file_path.print_path(),
+            
+            ["file", "head"] => pola::convert_to_df(file_path.selected_file.clone()).unwrap_or_else(|e| {
+                eprintln!("Error reading CSV file: {}", e);
+            }),
 
             ["exit"] => {
                 println!("Exiting...");
