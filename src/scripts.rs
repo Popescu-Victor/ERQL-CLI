@@ -1,6 +1,10 @@
 use rfd::FileDialog;
 use std::path::PathBuf;
 
+
+// FILE commands
+
+
 pub fn select_file() -> Option<PathBuf> {
     let file = FileDialog::new().pick_file();
     if let Some(path) = &file {
@@ -31,3 +35,5 @@ impl FilePath {
         }
     }
 }
+
+

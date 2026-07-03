@@ -2,7 +2,7 @@ use std::io::{self, Write};
 
 
 mod scripts;
-mod pola;
+mod dataframes;
 
 fn main() {
 
@@ -25,7 +25,7 @@ fn main() {
 
             ["file", "path"] => file_path.print_path(),
             
-            ["file", "head"] => pola::convert_to_df(file_path.selected_file.clone()).unwrap_or_else(|e| {
+            ["file", "head"] => dataframes::convert_to_df(file_path.selected_file.clone()).unwrap_or_else(|e| {
                 eprintln!("Error reading CSV file: {}", e);
             }),
 
