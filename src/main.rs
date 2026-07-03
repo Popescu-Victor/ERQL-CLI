@@ -5,6 +5,9 @@ use std::path::PathBuf;
 mod scripts;
 
 fn main() {
+
+    let mut file_path = scripts::FilePath::new();
+
     loop {
         print!(">> ");
         io::stdout().flush().unwrap();
@@ -18,9 +21,9 @@ fn main() {
 
 
         match parts.as_slice() {
-            ["file", "select"] => {
-                scripts::select_file();
-            }
+            ["file", "select"] => file_path.select_file(),
+
+            ["file", "path"] => file_path.print_path(),
 
             ["exit"] => {
                 println!("Exiting...");
@@ -31,24 +34,3 @@ fn main() {
             }
 }}}
 
-
-struct FilePath {
-    selected_file: Option<PathBuf>,
-}
-
-impl FilePath {
-    fn new() -> Self {
-        FilePath { selected_file: None }
-    }
-
-    fn select_file(&mut self) {
-        self.selected_file = scripts::select_file();
-    }
-
-    fn print_path(&self) {
-        match &self.selected_file {
-            Some(path) => println!("Selected file path: {}", path.display()),
-            None => println!("No file selected."),
-        }
-    }
-}
