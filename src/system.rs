@@ -4,6 +4,9 @@ use windows::Win32::UI::WindowsAndMessaging::{
 };
 use windows::core::PWSTR;
 
+// Returnign list of open windows.
+
+
 pub fn get_open_window_names() -> Vec<String> {
     let mut names: Vec<String> = Vec::new();
 
