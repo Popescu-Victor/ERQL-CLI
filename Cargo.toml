@@ -10,3 +10,5 @@ encoding_rs = "0.8"
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
 windows = { version = "0.58", features = ["Win32_Foundation", "Win32_UI_WindowsAndMessaging"] }
+thirtyfour = "0.37.2"
+tokio = { version = "1", features = ["full"] }

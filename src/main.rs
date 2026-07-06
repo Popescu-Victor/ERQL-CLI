@@ -4,6 +4,10 @@ use std::io::{self, Write};
 mod scripts;
 mod dataframes;
 mod system;
+mod hw_scrape_ilias;
+
+
+
 
 fn main() {
 
@@ -42,6 +46,10 @@ fn main() {
                 for name in window_names {
                     println!("{}", name);
                 }
+            }
+
+            ["ilias", "scrape"] => {
+                hw_scrape_ilias::scrape().unwrap();
             }
 
             ["exit"] => {
