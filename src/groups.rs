@@ -1,5 +1,5 @@
 use serde::{Serialize, Deserialize};
-
+// Storing relations between a teacher and their students.
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
 struct Teacher {

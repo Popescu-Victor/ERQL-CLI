@@ -2,7 +2,7 @@ use polars::prelude::*;
 use std::path::PathBuf;
 use encoding_rs::WINDOWS_1252;
 
-
+// Moving Python/Pandas scripts over to Rust using the Polars crate.
 
 
 
