@@ -6,10 +6,10 @@ use thirtyfour::prelude::*;
 #[tokio::main]
 pub async fn scrape() -> WebDriverResult<()> {
     // Set up Chrome capabilities
-    let caps = DesiredCapabilities::chrome();
+    let caps = DesiredCapabilities::edge();
 
-    // Connect to the chromedriver instance running on port 9515
-    let driver = WebDriver::new("http://localhost:9515", caps).await?;
+    // Connect to the chromedriver instance running on port 50098
+    let driver = WebDriver::new("http://localhost:50098", caps).await?;
 
     // Navigate to example.com
     driver.goto("https://example.com").await?;
