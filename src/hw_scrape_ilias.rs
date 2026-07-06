@@ -1,26 +1,29 @@
 use std::io::{self, Write};
-
-
 use thirtyfour::prelude::*;
 
+
 #[tokio::main]
-pub async fn scrape() -> WebDriverResult<()> {
+pub async fn scrape(weblink: &str, localhost: &str) -> WebDriverResult<()> {
     // Set up Chrome capabilities
     let caps = DesiredCapabilities::edge();
 
     // Connect to the chromedriver instance running on port 50098
-    let driver = WebDriver::new("http://localhost:50098", caps).await?;
+    let driver = WebDriver::new(&format!("http://{}:51228", localhost), caps).await?;
 
-    // Navigate to example.com
-    driver.goto("https://example.com").await?;
+    // Navigate to the provided weblink
+    driver.goto(weblink).await?;
 
-    // Grab the page title as a sanity check
+
     let title = driver.title().await?;
     println!("Page title: {}", title);
 
-    // Grab the page source (the actual rendered HTML)
-    let html = driver.source().await?;
-    println!("{}", html);
+    let elements = driver
+    .find_all(By::Css(".ilc_link_ExtLink"))
+    .await?;
+    for element in elements {
+        let html = element.inner_html().await?;
+        println!("{}", html);
+    }
 
     // Always close the browser session when done
     driver.quit().await?;

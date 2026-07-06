@@ -48,8 +48,13 @@ fn main() {
                 }
             }
 
-            ["ilias", "scrape"] => {
-                hw_scrape_ilias::scrape().unwrap();
+            ["ilias", "scrape", weblink, localhost] => {
+                if localhost.is_empty() {
+                    eprintln!("Error: localhost parameter set to default.");
+                    let localhost = "50098";
+                    continue;
+                }
+                hw_scrape_ilias::scrape(weblink, localhost).unwrap();
             }
 
             ["exit"] => {
