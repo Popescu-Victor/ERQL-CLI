@@ -17,6 +17,10 @@ fn main() {
         print!(">> ");
         io::stdout().flush().unwrap();
 
+        // stdout() -> Returns a handle to the standard output stream
+        // flush() ->  Output to stdout is usually buffered — Rust doesn't send every single character to the terminal immediately; it collects output and writes it in chunks for efficiency. flush() forces any buffered data to be written out right away.
+        // unwrap() -> flush() returns a Result. .unwrap() says "give me the success value, and if it's an error, panic with a message." It's a quick way to handle the Result without proper error handling — fine for small programs or quick scripts, but not ideal for production code where you'd want to handle the error gracefully.
+
         let mut input = String::new();
         io::stdin().read_line(&mut input).unwrap();
 
